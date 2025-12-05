@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miiko Bakehouse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #faf7f5;
+      color: #333;
+    }
+    header {
+      background: #f4c2c2;
+      padding: 20px;
+      text-align: center;
+    }
+    #products {
+      padding: 20px;
+      text-align: center;
+    }
+    #products img {
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #88b04b;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #eee;
+      text-align: center;
+    }
+    a {
+      color: #0066cc;
+    }
+      
+    /* Products grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .product img { max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+    .product h3 { margin: 10px 0 6px; font-size: 18px; }
+    .product p.price { font-weight: 600; margin: 6px 0; }
+    </style>
+</head>
+<body>
+  <header>
+    <h1>Best Sakura Matcha, Parfaits, and Gluten-free Breads</h1>
+  </header>
+
+  <section id="products">
+    <img src="Gluten free breads and sakura matcha " alt="Sakura matcha, gluten-free breads, and parfaits" />
+    <h2>Premium Bread and Matcha</h2>
+    <p>Freshly baked gluten-free bread paired with exquisite sakura matcha. Experience the perfect blend of health and taste, crafted for your delight.</p>
+    <button onclick="window.location.href='order.html'">Buy Now</button>
+    <button onclick="alert('Added to cart!')">Add to Cart</button>
+  </section>
+
+  <section id="menu">
+    <h2 style="text-align:center;">Our Special Breads & Matcha</h2>
+    <div class="grid">
+      <article class="product">
+        <img src="ceremonial-matcha.jpg" alt="Ceremonial Matcha" />
+        <h3>Ceremonial Matcha</h3>
+        <p class="price">Rp 50.000</p>
+        <button onclick="addToCart('Ceremonial Matcha')">Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="sakura-matcha.jpg" alt="Sakura Matcha" />
+        <h3>Sakura Matcha</h3>
+        <p class="price">Rp 55.000</p>
+        <button onclick="addToCart('Sakura Matcha')">Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="blueberry-bread.jpg" alt="Blueberry Bread" />
+        <h3>Blueberry Bread</h3>
+        <p class="price">Rp 65.000</p>
+        <button onclick="addToCart('Blueberry Bread')">Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="butterfly-matcha.jpg" alt="Butterfly Matcha" />
+        <h3>Butterfly Matcha</h3>
+        <p class="price">Rp 60.000</p>
+        <button onclick="addToCart('Butterfly Matcha')">Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="raspberry-bread.jpg" alt="Raspberry Bread" />
+        <h3>Raspberry Bread</h3>
+        <p class="price">Rp 62.000</p>
+        <button onclick="addToCart('Raspberry Bread')">Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="chocolate-bread.jpg" alt="Chocolate Bread" />
+        <h3>Chocolate Bread</h3>
+        <p class="price">Rp 58.000</p>
+        <button onclick="addToCart('Chocolate Bread')">Add to Cart</button>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>Contact us at: <a href="mailto:info@miikobakehouse.com">info@miikobakehouse.com</a></p>
+  </footer>
+  <script>
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name: item, quantity: 1 });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(item + ' added to cart!');
+    }
+  </script>
+</body>
+</html>
